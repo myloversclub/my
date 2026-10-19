@@ -3,145 +3,268 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>my little world ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>my little iPhone ♡</title>
 <style>
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: #f5eaf0;
-  color: #593e4b;
-  font-family: -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: #e9dce5;
+  color: #302a30;
 }
 .phone {
   width: 100%;
-  max-width: 390px;
+  max-width: 430px;
   min-height: 100vh;
   margin: auto;
-  padding: 24px;
-  background: #fff9fc;
+  background: #f8f6f8;
+  position: relative;
+  overflow: hidden;
 }
 .status {
+  height: 55px;
+  padding: 17px 28px 0;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 38px;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 700;
 }
-h1 { font-size: 28px; }
-.sub { color: #a48695; font-size: 13px; }
-.hero {
-  margin: 28px 0;
-  padding: 25px 12px;
-  text-align: center;
-  border-radius: 22px;
-  background: #f4dce8;
-}
-.heart { font-size: 42px; }
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-button {
-  padding: 20px 8px;
-  border: 0;
-  border-radius: 17px;
-  background: #f3e5ec;
-  color: #68475a;
+.top {
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 14px;
+}
+.screen { display: none; min-height: calc(100vh - 105px); }
+.screen.active { display: block; }
+.home { padding: 24px 25px 90px; }
+.date { font-size: 14px; color: #8e7c89; margin-top: 20px; }
+h1 { font-size: 32px; margin: 8px 0 24px; }
+.widget {
+  background: #efdce7;
+  border-radius: 25px;
+  padding: 25px 20px;
+  margin-bottom: 24px;
+}
+.widget .heart { font-size: 35px; }
+.widget h2 { margin: 12px 0 6px; font-size: 22px; }
+.widget p { color: #786774; font-size: 14px; }
+.apps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px 8px;
+}
+.app {
+  border: 0;
+  background: transparent;
+  color: #383039;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
   cursor: pointer;
 }
-.grid span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 27px;
+.icon {
+  width: 57px;
+  height: 57px;
+  border-radius: 15px;
+  background: white;
+  display: grid;
+  place-items: center;
+  font-size: 29px;
+  box-shadow: 0 2px 5px #0000000a;
 }
-.page { display: none; }
-.page.active { display: block; }
-.note {
-  margin: 12px 0;
-  padding: 18px;
+.app small { font-size: 10px; }
+.dock {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  background: #e8e1e7dd;
+  border-radius: 24px;
+  padding: 12px 10px;
+  display: flex;
+  justify-content: space-around;
+  backdrop-filter: blur(12px);
+}
+.dock .icon { width: 51px; height: 51px; }
+.appscreen { padding: 10px 22px 40px; }
+.back {
+  border: 0;
+  background: transparent;
+  color: #9a6286;
+  font-size: 16px;
+  padding: 10px 0;
+}
+.appscreen h1 { font-size: 30px; margin: 20px 0; }
+.card {
+  padding: 17px;
+  background: white;
   border-radius: 16px;
-  background: #fff0f6;
-  line-height: 1.8;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px #00000008;
+}
+.muted { color: #928592; font-size: 13px; }
+.homebar {
+  width: 120px;
+  height: 5px;
+  border-radius: 10px;
+  background: #242124;
+  position: fixed;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
 </head>
 <body>
-<main class="phone">
+<div class="phone">
   <div class="status">
+    <span id="clock">9:41 ♥</span>
+    <span>●●● ▰</span>
+  </div>
+  <div class="top">
     <span>my phone ♡</span>
-    <span>● ● ▰</span>
+    <span>•••</span>
   </div>
 
-  <section id="home" class="page active">
-    <p class="sub">A LITTLE SPACE FOR MY FAVORITE</p>
+  <section id="home" class="screen active home">
+    <div class="date" id="today"></div>
     <h1>my little world ♡</h1>
-    <p class="sub">오늘도 좋아하는 마음을 모아서.</p>
-    <div class="hero">
+    <div class="widget">
       <div class="heart">♡</div>
       <h2>my favorite person</h2>
       <p>you make my day better.</p>
     </div>
-    <div class="grid">
-      <button onclick="openPage('schedule')">
-        <span>🗓️</span>SCHEDULE
+    <div class="apps">
+      <button class="app" onclick="openApp('phoneApp')">
+        <span class="icon">📱</span><small>전화</small>
       </button>
-      <button onclick="openPage('love')">
-        <span>💌</span>MY LOVE
+      <button class="app" onclick="openApp('messagesApp')">
+        <span class="icon">💬</span><small>메시지</small>
       </button>
-      <button onclick="openPage('gallery')">
-        <span>🖼️</span>GALLERY
+      <button class="app" onclick="openApp('notesApp')">
+        <span class="icon">📝</span><small>메모</small>
       </button>
-      <button onclick="openPage('diary')">
-        <span>📔</span>DIARY
+      <button class="app" onclick="openApp('photosApp')">
+        <span class="icon">🌄</span><small>사진</small>
+      </button>
+      <button class="app" onclick="openApp('calendarApp')">
+        <span class="icon">📅</span><small>캘린더</small>
+      </button>
+      <button class="app" onclick="openApp('musicApp')">
+        <span class="icon">🎵</span><small>음악</small>
+      </button>
+      <button class="app" onclick="openApp('settingsApp')">
+        <span class="icon">⚙️</span><small>설정</small>
+      </button>
+      <button class="app" onclick="openApp('diaryApp')">
+        <span class="icon">📔</span><small>일기</small>
       </button>
     </div>
   </section>
 
-  <section id="schedule" class="page">
-    <button onclick="goHome()">← HOME</button>
-    <h1>Schedule 🗓️</h1>
-    <div class="note">♡ 기다리는 날들을 기록하기</div>
-    <div class="note">♡ 새로운 소식 확인하기</div>
+  <section id="phoneApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>최근 통화</h1>
+    <div class="card">🦊 양정인 <span class="muted"> · 발신 전화</span><p class="muted">오늘 오후 8:14</p></div>
+    <div class="card">🐿️ 김승민 <span class="muted"> · 부재중 전화</span><p class="muted">어제 오후 6:30</p></div>
+    <div class="card">🐰 이민호 <span class="muted"> · 발신 전화</span><p class="muted">10월 16일</p></div>
+    <p class="muted">가상의 통화 기록입니다.</p>
   </section>
 
-  <section id="love" class="page">
-    <button onclick="goHome()">← HOME</button>
-    <h1>My love 💌</h1>
-    <div class="note">
-      좋아하는 마음은 매일 새로워.<br>
-      오늘도 네가 행복했으면 좋겠어 ♡
-    </div>
+  <section id="messagesApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>메시지</h1>
+    <div class="card" onclick="openApp('chatApp')">🦊 양정인 <p class="muted">누나 지금 뭐 해요?</p></div>
+    <div class="card" onclick="openApp('chatApp')">🐿️ 김승민 <p class="muted">내일 봐요 ㅎㅎ</p></div>
+    <div class="card" onclick="openApp('chatApp')">🐰 이민호 <p class="muted">도착하면 연락해.</p></div>
   </section>
 
-  <section id="gallery" class="page">
-    <button onclick="goHome()">← HOME</button>
-    <h1>Gallery 🖼️</h1>
-    <div class="note">📷 MY FAVORITE MOMENTS</div>
+  <section id="chatApp" class="screen appscreen">
+    <button class="back" onclick="openApp('messagesApp')">‹ 메시지</button>
+    <h1>양정인 🦊</h1>
+    <div class="card">누나 지금 뭐 해요?</div>
+    <div class="card" style="background:#d8f5c8;margin-left:35px">너 생각 중 ㅎㅎ</div>
+    <p class="muted">예시 대화입니다. 다음 단계에서 직접 입력 기능을 만들 수 있어!</p>
   </section>
 
-  <section id="diary" class="page">
-    <button onclick="goHome()">← HOME</button>
-    <h1>My diary 📔</h1>
-    <textarea id="memo"
-      placeholder="오늘의 덕질 기록 ♡"
-      style="width:100%;height:180px;padding:14px;
-      border:1px solid #e8cfdd;border-radius:16px;
-      background:#fff9fc;font:inherit"></textarea>
-    <p class="sub">이 버전은 메모를 영구 저장하지 않아.</p>
+  <section id="notesApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>메모</h1>
+    <div class="card">♡ 덕질 메모 <p class="muted">컴백 일정 확인하기</p></div>
+    <div class="card">콘서트 준비물 <p class="muted">응원봉 · 슬로건 · 보조배터리</p></div>
+    <p class="muted">현재는 예시 메모입니다.</p>
   </section>
-</main>
+
+  <section id="photosApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>사진</h1>
+    <div class="card">♡ 사진 보관함</div>
+    <p class="muted">다음 단계에서 사진을 추가할 수 있도록 만들자!</p>
+  </section>
+
+  <section id="calendarApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>캘린더</h1>
+    <div class="card">📅 다가오는 일정</div>
+    <p class="muted">컴백 · 생일 카페 · 콘서트</p>
+  </section>
+
+  <section id="musicApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>음악</h1>
+    <div class="card">🎵 my favorite playlist</div>
+    <p class="muted">좋아하는 노래 목록을 꾸며 보자.</p>
+  </section>
+
+  <section id="settingsApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>설정</h1>
+    <div class="card">🌷 배경화면 <p class="muted">soft pink</p></div>
+    <div class="card">♡ 나의 가상 휴대폰</div>
+  </section>
+
+  <section id="diaryApp" class="screen appscreen">
+    <button class="back" onclick="goHome()">‹ 홈</button>
+    <h1>나의 일기</h1>
+    <div class="card">오늘의 덕질 기록 ♡</div>
+    <p class="muted">다음 단계에서 직접 작성하고 저장하도록 만들자!</p>
+  </section>
+
+  <div class="dock">
+    <button class="app" onclick="openApp('phoneApp')"><span class="icon">📞</span></button>
+    <button class="app" onclick="openApp('messagesApp')"><span class="icon">💬</span></button>
+    <button class="app" onclick="openApp('photosApp')"><span class="icon">🌄</span></button>
+    <button class="app" onclick="openApp('musicApp')"><span class="icon">🎵</span></button>
+  </div>
+  <div class="homebar"></div>
+</div>
+
 <script>
-function openPage(id) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
+function openApp(id) {
+  document.querySelectorAll('.screen').forEach(function(screen) {
+    screen.classList.remove('active');
   });
   document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
 }
 function goHome() {
-  openPage('home');
+  openApp('home');
 }
+function updateClock() {
+  var now = new Date();
+  document.getElementById('clock').textContent =
+    now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0') + ' ♥';
+  document.getElementById('today').textContent =
+    now.getFullYear() + '년 ' + (now.getMonth() + 1) + '월 ' + now.getDate() + '일';
+}
+updateClock();
+setInterval(updateClock, 30000);
 </script>
 </body>
 </html>
