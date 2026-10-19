@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>my little world ♡</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f5eaf0;
+  color: #593e4b;
+  font-family: -apple-system, sans-serif;
+}
+.phone {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 24px;
+  background: #fff9fc;
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 38px;
+  font-size: 13px;
+}
+h1 { font-size: 28px; }
+.sub { color: #a48695; font-size: 13px; }
+.hero {
+  margin: 28px 0;
+  padding: 25px 12px;
+  text-align: center;
+  border-radius: 22px;
+  background: #f4dce8;
+}
+.heart { font-size: 42px; }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+button {
+  padding: 20px 8px;
+  border: 0;
+  border-radius: 17px;
+  background: #f3e5ec;
+  color: #68475a;
+  font-size: 14px;
+  cursor: pointer;
+}
+.grid span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 27px;
+}
+.page { display: none; }
+.page.active { display: block; }
+.note {
+  margin: 12px 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff0f6;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+<main class="phone">
+  <div class="status">
+    <span>my phone ♡</span>
+    <span>● ● ▰</span>
+  </div>
+
+  <section id="home" class="page active">
+    <p class="sub">A LITTLE SPACE FOR MY FAVORITE</p>
+    <h1>my little world ♡</h1>
+    <p class="sub">오늘도 좋아하는 마음을 모아서.</p>
+    <div class="hero">
+      <div class="heart">♡</div>
+      <h2>my favorite person</h2>
+      <p>you make my day better.</p>
+    </div>
+    <div class="grid">
+      <button onclick="openPage('schedule')">
+        <span>🗓️</span>SCHEDULE
+      </button>
+      <button onclick="openPage('love')">
+        <span>💌</span>MY LOVE
+      </button>
+      <button onclick="openPage('gallery')">
+        <span>🖼️</span>GALLERY
+      </button>
+      <button onclick="openPage('diary')">
+        <span>📔</span>DIARY
+      </button>
+    </div>
+  </section>
+
+  <section id="schedule" class="page">
+    <button onclick="goHome()">← HOME</button>
+    <h1>Schedule 🗓️</h1>
+    <div class="note">♡ 기다리는 날들을 기록하기</div>
+    <div class="note">♡ 새로운 소식 확인하기</div>
+  </section>
+
+  <section id="love" class="page">
+    <button onclick="goHome()">← HOME</button>
+    <h1>My love 💌</h1>
+    <div class="note">
+      좋아하는 마음은 매일 새로워.<br>
+      오늘도 네가 행복했으면 좋겠어 ♡
+    </div>
+  </section>
+
+  <section id="gallery" class="page">
+    <button onclick="goHome()">← HOME</button>
+    <h1>Gallery 🖼️</h1>
+    <div class="note">📷 MY FAVORITE MOMENTS</div>
+  </section>
+
+  <section id="diary" class="page">
+    <button onclick="goHome()">← HOME</button>
+    <h1>My diary 📔</h1>
+    <textarea id="memo"
+      placeholder="오늘의 덕질 기록 ♡"
+      style="width:100%;height:180px;padding:14px;
+      border:1px solid #e8cfdd;border-radius:16px;
+      background:#fff9fc;font:inherit"></textarea>
+    <p class="sub">이 버전은 메모를 영구 저장하지 않아.</p>
+  </section>
+</main>
+<script>
+function openPage(id) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+function goHome() {
+  openPage('home');
+}
+</script>
+</body>
+</html>
