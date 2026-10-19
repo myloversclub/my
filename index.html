@@ -1,280 +1,39 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>my little iPhone ♡</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#172b4d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="My iPhone">
+<title>My iPhone</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: #111827;
-  color: #ffffff;
-}
-.phone {
-  width: 100%;
-  max-width: 430px;
-  min-height: 100vh;
-  margin: auto;
-  background:
-    radial-gradient(ellipse at 20% 25%, #527aab 0%, transparent 42%),
-    radial-gradient(ellipse at 80% 45%, #79658e 0%, transparent 45%),
-    radial-gradient(ellipse at 45% 90%, #d39b72 0%, transparent 40%),
-    linear-gradient(160deg, #172c4d, #536783 55%, #24293e);
-  position: relative;
-  overflow: hidden;
-}
-.status {
-  height: 55px;
-  padding: 17px 28px 0;
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  font-weight: 700;
-  color: white;
-}
-.top {
-  display: none;
-}
-.home {
-  padding: 24px 25px 110px;
-}
-.date {
-  font-size: 14px;
-  color: #ffffff;
-  margin-top: 20px;
-}
-h1 {
-  font-size: 32px;
-  margin: 8px 0 24px;
-  color: white;
-}
-.widget {
-  display: none;
-}
-.apps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 27px 8px;
-  margin-top: 30px;
-}
-.app {
-  border: 0;
-  background: transparent;
-  color: white;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  font: inherit;
-  cursor: pointer;
-}
-.icon {
-  width: 57px;
-  height: 57px;
-  border-radius: 14px;
-  background: #f7f7f7;
-  display: grid;
-  place-items: center;
-  font-size: 29px;
-  box-shadow: 0 3px 10px #00000020;
-}
-.app small {
-  font-size: 11px;
-  color: white;
-  text-shadow: 0 1px 4px #00000080;
-}
-.dock {
-  position: absolute;
-  bottom: 22px;
-  left: 18px;
-  right: 18px;
-  background: #ffffff35;
-  border: 1px solid #ffffff30;
-  border-radius: 27px;
-  padding: 12px 10px;
-  display: flex;
-  justify-content: space-around;
-  backdrop-filter: blur(20px);
-}
-.dock .icon {
-  width: 51px;
-  height: 51px;
-}
-.homebar {
-  width: 120px;
-  height: 5px;
-  border-radius: 10px;
-  background: white;
-  position: fixed;
-  bottom: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-  .screen {
-  display: none;
-}
-
-.screen.active {
-  display: block;
-}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#fff;font-synthesis:none}*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;overscroll-behavior:none}body{background:#101827}button,input,textarea{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}#device{height:100dvh;min-height:560px;max-width:500px;margin:auto;position:relative;overflow:hidden;background:radial-gradient(ellipse at 20% 25%,#4d7cac 0%,transparent 45%),radial-gradient(ellipse at 78% 44%,#6d668c 0%,transparent 48%),radial-gradient(ellipse at 44% 90%,#d39b70 0%,transparent 42%),linear-gradient(155deg,#172b4d,#526783 55%,#242b43)}#device.wallpaper2{background:radial-gradient(ellipse at 35% 10%,#e9a3c0,transparent 47%),radial-gradient(ellipse at 75% 70%,#9089d4,transparent 52%),linear-gradient(160deg,#624e95,#253f72)}#device.wallpaper3{background:radial-gradient(ellipse at 25% 30%,#627d69,transparent 47%),radial-gradient(ellipse at 80% 75%,#c9b58b,transparent 48%),linear-gradient(160deg,#1c3444,#607d74)}.status{height:calc(env(safe-area-inset-top) + 25px);padding:calc(env(safe-area-inset-top) + 5px) 29px 0;display:flex;align-items:flex-start;justify-content:space-between;font-size:15px;font-weight:650;position:relative;z-index:4;pointer-events:none}.status .symbols{font-size:14px;letter-spacing:1px}.home{position:absolute;inset:0;padding:calc(env(safe-area-inset-top) + 73px) 24px 125px;overflow-y:auto}.home .day{font-size:16px;opacity:.95}.home .heart{font-size:43px;font-weight:250;margin:6px 0 44px}.apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:12px;row-gap:26px}.app{background:none;border:0;color:white;display:flex;flex-direction:column;align-items:center;gap:7px;padding:0;min-width:0}.app small{font-size:11px;text-shadow:0 1px 5px #0005;white-space:nowrap}.ico{width:min(15.5vw,61px);height:min(15.5vw,61px);max-width:61px;max-height:61px;display:grid;place-items:center;border-radius:15px;box-shadow:0 3px 8px #0002;font-size:29px;position:relative;overflow:hidden}.ico svg{width:65%;height:65%;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.green{background:#32c85a}.white{background:#fff;color:#333}.yellow{background:linear-gradient(#fff 0 70%,#f4d65b 70%);color:#444}.red{background:linear-gradient(145deg,#fb677d,#ee2852)}.gray{background:linear-gradient(145deg,#f4f4f6,#aeb3bb);color:#525963}.beige{background:#f3e2ad;color:#6c533a}.blue{background:#56a7ef}.dock{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 18px);left:17px;right:17px;height:90px;border-radius:28px;background:#ffffff38;border:1px solid #ffffff35;display:flex;align-items:center;justify-content:space-around;backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px)}.dock .ico{width:56px;height:56px}.dock .app small{display:none}.home-indicator{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 5px);left:50%;transform:translateX(-50%);width:115px;height:5px;border-radius:10px;background:#fff;z-index:11;border:0}.screen{display:none;position:absolute;inset:0;background:#f2f2f7;color:#111;z-index:5;overflow-y:auto;padding-top:calc(env(safe-area-inset-top) + 34px);padding-bottom:calc(env(safe-area-inset-bottom) + 50px)}.screen.active{display:block}.screen.dark{background:#080808;color:white}.screen .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;color:#007aff;min-height:46px}.nav button{background:none;border:0;color:#007aff;font-size:16px;padding:5px 0}.screen h1{font-size:32px;letter-spacing:-1px;margin:7px 20px 18px}.screen h2{font-size:21px;margin:20px}.group{margin:12px 16px 25px;background:#fff;border-radius:13px;overflow:hidden}.dark .group{background:#1c1c1e}.cell{border:0;border-bottom:1px solid #e5e5ea;background:none;display:flex;align-items:center;gap:12px;padding:15px 16px;min-height:55px;width:100%;text-align:left;color:inherit}.cell:last-child{border-bottom:0}.cell .detail{flex:1;min-width:0}.cell b{display:block;font-size:16px;font-weight:550}.cell small{display:block;color:#8e8e93;margin-top:4px;font-size:13px}.cell .trail{color:#8e8e93;font-size:13px}.bubbleicon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#dedee4;font-size:22px}.tabbar{position:sticky;bottom:0;background:#f9f9f9e8;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:12px 0 7px;color:#8e8e93}.tabbar button{background:none;border:0;color:#007aff;font-size:13px}.search{margin:0 18px 16px;padding:11px 13px;background:#e3e3e8;border:0;border-radius:11px;width:calc(100% - 36px);outline:none}.editor{width:calc(100% - 36px);margin:10px 18px;min-height:50vh;border:0;outline:none;resize:none;background:transparent;color:inherit;font-size:17px;line-height:1.55}.primary{border:0;border-radius:12px;background:#007aff;color:white;padding:11px 16px;font-weight:600}.secondary{border:0;border-radius:12px;background:#e5e5ea;color:#007aff;padding:10px 15px}.toolbar{display:flex;gap:8px;margin:10px 18px;align-items:center;flex-wrap:wrap}.muted{color:#8e8e93;font-size:13px}.chat{padding:10px 18px;display:flex;flex-direction:column;gap:10px;min-height:48vh}.message{border-radius:18px;padding:11px 14px;max-width:80%;background:#e5e5ea;align-self:flex-start;line-height:1.45}.message.me{background:#34c759;color:white;align-self:flex-end}.composer{display:flex;gap:8px;padding:12px 16px;background:#f9f9fb}.composer input{flex:1;min-width:0;border:1px solid #ddd;border-radius:22px;padding:11px 15px;background:white}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:18px}.photo{border:0;aspect-ratio:1;display:grid;place-items:center;font-size:40px;color:white}.photo:nth-child(6n+1){background:linear-gradient(135deg,#a9c9ff,#ffbbec)}.photo:nth-child(6n+2){background:linear-gradient(135deg,#f6d365,#fda085)}.photo:nth-child(6n+3){background:linear-gradient(135deg,#84fab0,#8fd3f4)}.photo:nth-child(6n+4){background:linear-gradient(135deg,#cfd9df,#e2ebf0)}.photo:nth-child(6n+5){background:linear-gradient(135deg,#d4fc79,#96e6a1)}.photo:nth-child(6n){background:linear-gradient(135deg,#fccb90,#d57eeb)}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:8px;margin:18px 12px}.calendar-grid div{padding:9px 0;font-size:14px}.calendar-grid .today{background:#ff3b30;color:#fff;border-radius:50%}.calendar-grid .weekday{color:#8e8e93;font-size:12px}.player{text-align:center;padding:20px 28px}.album{height:min(70vw,300px);width:min(70vw,300px);margin:25px auto 30px;border-radius:13px;background:linear-gradient(135deg,#ed7190,#7c75d7,#426eac);display:grid;place-items:center;font-size:90px;box-shadow:0 14px 30px #0004}.player button{background:none;border:0;color:white;font-size:34px;padding:15px}.player input{width:100%}.setting-choice{display:flex;gap:12px;padding:14px 18px}.swatch{height:60px;width:60px;border:3px solid #fff;border-radius:15px;box-shadow:0 0 0 1px #bbb}.note-item{cursor:pointer}.hide{display:none!important}#toast{position:absolute;z-index:20;bottom:115px;left:50%;transform:translateX(-50%);background:#222e;color:white;padding:10px 16px;border-radius:18px;white-space:nowrap;display:none;font-size:13px}body.inapp .status{color:#111}body.inapp #device{background:#f2f2f7}body.inapp .home-indicator{background:#111}body.inapp .status .symbols{color:#111}@media(max-width:350px){.apps{column-gap:6px}.home{padding-left:13px;padding-right:13px}.ico{border-radius:13px}}
 </style>
 </head>
-<body>
-<div class="phone">
-  <div class="status">
-    <span id="clock">9:41 ♥</span>
-    <span>●●● ▰</span>
-  </div>
-  <div class="top">
-    <span>my phone ♡</span>
-    <span>•••</span>
-  </div>
-
- 
-<section id="home" class="screen active home">
-  <div class="date" id="today"></div>
-  <h1>♡</h1>
-
-  <div class="apps">
-    <button class="app" onclick="openApp('phoneApp')">
-      <span class="icon" style="background:#36c66b">📞</span>
-      <small>전화</small>
-    </button>
-    <button class="app" onclick="openApp('messagesApp')">
-      <span class="icon" style="background:#45cf67">💬</span>
-      <small>메시지</small>
-    </button>
-    <button class="app" onclick="openApp('notesApp')">
-      <span class="icon" style="background:#ffe66d">📝</span>
-      <small>메모</small>
-    </button>
-    <button class="app" onclick="openApp('photosApp')">
-      <span class="icon">🌈</span>
-      <small>사진</small>
-    </button>
-    <button class="app" onclick="openApp('calendarApp')">
-      <span class="icon" style="background:white">📅</span>
-      <small>캘린더</small>
-    </button>
-    <button class="app" onclick="openApp('musicApp')">
-      <span class="icon" style="background:#fa425c">🎵</span>
-      <small>음악</small>
-    </button>
-    <button class="app" onclick="openApp('settingsApp')">
-      <span class="icon" style="background:#d9dce1">⚙️</span>
-      <small>설정</small>
-    </button>
-    <button class="app" onclick="openApp('diaryApp')">
-      <span class="icon" style="background:#f4e6bd">📔</span>
-      <small>일기</small>
-    </button>
-  </div>
-</section>
-
-
-  <section id="phoneApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>최근 통화</h1>
-    <div class="card">🦊 양정인 <span class="muted"> · 발신 전화</span><p class="muted">오늘 오후 8:14</p></div>
-    <div class="card">🐿️ 김승민 <span class="muted"> · 부재중 전화</span><p class="muted">어제 오후 6:30</p></div>
-    <div class="card">🐰 이민호 <span class="muted"> · 발신 전화</span><p class="muted">10월 16일</p></div>
-    <p class="muted">가상의 통화 기록입니다.</p>
-  </section>
-
-  <section id="messagesApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>메시지</h1>
-    <div class="card" onclick="openApp('chatApp')">🦊 양정인 <p class="muted">누나 지금 뭐 해요?</p></div>
-    <div class="card" onclick="openApp('chatApp')">🐿️ 김승민 <p class="muted">내일 봐요 ㅎㅎ</p></div>
-    <div class="card" onclick="openApp('chatApp')">🐰 이민호 <p class="muted">도착하면 연락해.</p></div>
-  </section>
-
-  <section id="chatApp" class="screen appscreen">
-    <button class="back" onclick="openApp('messagesApp')">‹ 메시지</button>
-    <h1>양정인 🦊</h1>
-    <div class="card">누나 지금 뭐 해요?</div>
-    <div class="card" style="background:#d8f5c8;margin-left:35px">너 생각 중 ㅎㅎ</div>
-    <p class="muted">예시 대화입니다. 다음 단계에서 직접 입력 기능을 만들 수 있어!</p>
-  </section>
-
-  <section id="notesApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>메모</h1>
-    <div class="card">♡ 덕질 메모 <p class="muted">컴백 일정 확인하기</p></div>
-    <div class="card">콘서트 준비물 <p class="muted">응원봉 · 슬로건 · 보조배터리</p></div>
-    <p class="muted">현재는 예시 메모입니다.</p>
-  </section>
-
-  <section id="photosApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>사진</h1>
-    <div class="card">♡ 사진 보관함</div>
-    <p class="muted">다음 단계에서 사진을 추가할 수 있도록 만들자!</p>
-  </section>
-
-  <section id="calendarApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>캘린더</h1>
-    <div class="card">📅 다가오는 일정</div>
-    <p class="muted">컴백 · 생일 카페 · 콘서트</p>
-  </section>
-
-  <section id="musicApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>음악</h1>
-    <div class="card">🎵 my favorite playlist</div>
-    <p class="muted">좋아하는 노래 목록을 꾸며 보자.</p>
-  </section>
-
-  <section id="settingsApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>설정</h1>
-    <div class="card">🌷 배경화면 <p class="muted">soft pink</p></div>
-    <div class="card">♡ 나의 가상 휴대폰</div>
-  </section>
-
-  <section id="diaryApp" class="screen appscreen">
-    <button class="back" onclick="goHome()">‹ 홈</button>
-    <h1>나의 일기</h1>
-    <div class="card">오늘의 덕질 기록 ♡</div>
-    <p class="muted">다음 단계에서 직접 작성하고 저장하도록 만들자!</p>
-  </section>
-
-  <div class="dock">
-    <button class="app" onclick="openApp('phoneApp')"><span class="icon">📞</span></button>
-    <button class="app" onclick="openApp('messagesApp')"><span class="icon">💬</span></button>
-    <button class="app" onclick="openApp('photosApp')"><span class="icon">🌄</span></button>
-    <button class="app" onclick="openApp('musicApp')"><span class="icon">🎵</span></button>
-  </div>
-  <div class="homebar"></div>
-</div>
-
+<body><main id="device"><div class="status"><span id="clock">9:41</span><span class="symbols">▂▄▆  Wi-Fi ▰</span></div>
+<section class="home" id="home"><div class="day" id="homeDate"></div><div class="heart">♡</div><div class="apps" id="apps"></div></section><div class="dock" id="dock"></div>
+<section class="screen" id="phone"><div class="nav"><button onclick="goHome()">‹ 홈</button><span>편집</span></div><h1>최근 통화</h1><div class="group" id="calls"></div><div class="tabbar"><button>☆ 즐겨찾기</button><button>◷ 최근 통화</button><button>☷ 연락처</button></div></section>
+<section class="screen" id="messages"><div class="nav"><button onclick="goHome()">‹ 홈</button><button onclick="newChat()">✎</button></div><h1>메시지</h1><input class="search" placeholder="검색" oninput="filterMessages(this.value)"><div class="group" id="threads"></div></section>
+<section class="screen" id="chat"><div class="nav"><button onclick="openApp('messages')">‹ 메시지</button><strong id="chatName"></strong><span>⋯</span></div><div class="chat" id="chatLog"></div><form class="composer" onsubmit="sendMessage(event)"><input id="messageInput" placeholder="문자 메시지" autocomplete="off"><button class="primary" type="submit">↑</button></form></section>
+<section class="screen" id="notes"><div class="nav"><button onclick="goHome()">‹ 홈</button><button onclick="addNote()">✎</button></div><h1>메모</h1><div class="group" id="notesList"></div></section>
+<section class="screen" id="noteEditor"><div class="nav"><button onclick="openApp('notes')">‹ 메모</button><button onclick="saveNote()">완료</button></div><input id="noteTitle" class="search" placeholder="제목"><textarea id="noteBody" class="editor" placeholder="메모를 입력하세요..."></textarea><div class="toolbar"><button class="secondary" onclick="deleteNote()">메모 삭제</button></div></section>
+<section class="screen" id="photos"><div class="nav"><button onclick="goHome()">‹ 홈</button><span>선택</span></div><h1>사진</h1><p class="muted" style="margin-left:20px">가상 앨범 · 예시 이미지</p><div class="gallery" id="gallery"></div></section>
+<section class="screen" id="photoView"><div class="nav"><button onclick="openApp('photos')">‹ 사진</button><span></span></div><div id="bigPhoto" style="height:65vh;display:grid;place-items:center;font-size:120px"></div></section>
+<section class="screen" id="calendar"><div class="nav"><button onclick="goHome()">‹ 홈</button><button onclick="calendarOffset=0;renderCalendar()">오늘</button></div><h1>캘린더</h1><div class="toolbar" style="justify-content:space-between"><button class="secondary" onclick="calendarOffset--;renderCalendar()">‹</button><strong id="calendarMonth"></strong><button class="secondary" onclick="calendarOffset++;renderCalendar()">›</button></div><div class="calendar-grid" id="calendarGrid"></div><h2>일정</h2><div class="group"><div class="cell">등록된 일정이 없어요.</div></div></section>
+<section class="screen dark" id="music"><div class="nav"><button onclick="goHome()">‹ 홈</button><span>음악</span></div><div class="player"><div class="album">♫</div><h2 style="margin-bottom:3px">My Playlist</h2><p style="color:#aaa">나만의 가상 음악 플레이어</p><input type="range" min="0" max="100" value="0" id="progress"><div style="display:flex;justify-content:space-evenly;align-items:center;margin-top:22px"><button onclick="musicSkip()">⏮</button><button id="playBtn" onclick="toggleMusic()">▶</button><button onclick="musicSkip()">⏭</button></div><p class="muted">실제 음원 재생 기능은 연결되지 않았어요.</p></div></section>
+<section class="screen" id="settings"><div class="nav"><button onclick="goHome()">‹ 홈</button></div><h1>설정</h1><div class="group"><div class="cell"><span class="bubbleicon">👤</span><div class="detail"><b>My iPhone</b><small>나만의 가상 아이폰</small></div></div></div><h2>배경화면</h2><div class="setting-choice"><button class="swatch" style="background:linear-gradient(130deg,#243d65,#b58b7e)" onclick="setWallpaper(1)" aria-label="파란색 배경"></button><button class="swatch" style="background:linear-gradient(130deg,#e9a3c0,#253f72)" onclick="setWallpaper(2)" aria-label="보라색 배경"></button><button class="swatch" style="background:linear-gradient(130deg,#1c3444,#bca77d)" onclick="setWallpaper(3)" aria-label="초록색 배경"></button></div><div class="group"><div class="cell">정보 <span class="trail" style="margin-left:auto">웹 기반 가상 iPhone</span></div><div class="cell">메모·일기는 이 브라우저에 저장됩니다.</div></div></section>
+<section class="screen" id="diary"><div class="nav"><button onclick="goHome()">‹ 홈</button><button onclick="saveDiary()">저장</button></div><h1>일기</h1><p class="muted" style="margin-left:20px" id="diaryDate"></p><textarea class="editor" id="diaryText" placeholder="오늘의 이야기를 적어 보세요..."></textarea></section>
+<button class="home-indicator" aria-label="홈으로 이동" onclick="goHome()"></button><div id="toast"></div></main>
 <script>
-function openApp(id) {
-  document.querySelectorAll('.screen').forEach(function(screen) {
-    screen.classList.remove('active');
-  });
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
-}
-function goHome() {
-  openApp('home');
-}
-function updateClock() {
-  var now = new Date();
-  document.getElementById('clock').textContent =
-    now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0') + ' ♥';
-  document.getElementById('today').textContent =
-    now.getFullYear() + '년 ' + (now.getMonth() + 1) + '월 ' + now.getDate() + '일';
-}
-updateClock();
-setInterval(updateClock, 30000);
-</script>
-</body>
-</html>
+const $=id=>document.getElementById(id);const storage={get:(key,fallback)=>{try{return JSON.parse(localStorage.getItem('virtualPhone_'+key))??fallback}catch{return fallback}},set:(key,value)=>{try{localStorage.setItem('virtualPhone_'+key,JSON.stringify(value))}catch{}}};
+const icons={phone:'<svg viewBox="0 0 24 24"><path d="M6 3l4 4-2.5 3a16 16 0 0 0 6.5 6.5l3-2.5 4 4-2 3c-1 1.5-3.5 1-5 0C8 18 6 16 3 10 2 8.5 1.5 6 3 5z" fill="white" stroke="white"/></svg>',messages:'<svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 1-8 8 9 9 0 0 1-4-.9L3 20l1.8-4.7A8 8 0 1 1 20 11Z" fill="white" stroke="white"/></svg>',notes:'<svg viewBox="0 0 24 24"><path d="M5 6h14M5 11h14M5 16h10" stroke="#6a6251"/></svg>',photos:'🌼',calendar:'<span id="calIcon" style="font-size:22px;font-weight:650;color:#e43a35">19</span>',music:'♫',settings:'⚙',diary:'📔'};
+const definitions=[['phone','전화','green'],['messages','메시지','green'],['notes','메모','yellow'],['photos','사진','white'],['calendar','캘린더','white'],['music','음악','red'],['settings','설정','gray'],['diary','일기','beige']];
+function appButton(id,label,color){const b=document.createElement('button');b.className='app';b.setAttribute('aria-label',label);b.innerHTML='<span class="ico '+color+'">'+icons[id]+'</span><small>'+label+'</small>';b.onclick=()=>openApp(id);return b}definitions.forEach(([id,label,color])=>$('apps').append(appButton(id,label,color)));['phone','messages','photos','music'].forEach(id=>{const d=definitions.find(x=>x[0]===id);$('dock').append(appButton(...d))});
+function updateClock(){const now=new Date();$('clock').textContent=now.toLocaleTimeString('ko-KR',{hour:'numeric',minute:'2-digit',hour12:false});$('homeDate').textContent=now.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});$('diaryDate').textContent=now.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});$('calIcon').textContent=now.getDate()}updateClock();setInterval(updateClock,30000);
+let current='home';function openApp(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));if(id!=='home'){$(id).classList.add('active');$('home').style.display='none';$('dock').style.display='none';document.body.classList.add('inapp')}else{$('home').style.display='block';$('dock').style.display='flex';document.body.classList.remove('inapp')}current=id;if(id==='notes')renderNotes();if(id==='messages')renderThreads();if(id==='calendar')renderCalendar();if(id==='diary')loadDiary();window.scrollTo(0,0)}function goHome(){openApp('home')}function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',1800)}
+const callData=[['🦊','양정인','발신 전화 · 오늘 오후 8:14'],['🐿️','김승민','부재중 전화 · 어제 오후 6:30'],['🐰','이민호','발신 전화 · 10월 17일']];callData.forEach(([emoji,name,detail])=>{const el=document.createElement('div');el.className='cell';el.innerHTML='<span class="bubbleicon">'+emoji+'</span><div class="detail"><b>'+name+'</b><small>'+detail+'</small></div><span class="trail">ⓘ</span>';$('calls').append(el)});
+let chats=storage.get('chats',[{name:'양정인',emoji:'🦊',messages:[{me:false,text:'오늘도 좋은 하루 보내 ㅎㅎㅎ'}]},{name:'김승민',emoji:'🐿️',messages:[{me:false,text:'뭐 하고 있어?'}]},{name:'이민호',emoji:'🐰',messages:[{me:false,text:'밥 먹었어?'}]}]);let chatIndex=0;function renderThreads(q=''){$('threads').replaceChildren();chats.forEach((c,i)=>{if(!c.name.includes(q))return;const b=document.createElement('button');b.className='cell';const last=c.messages.at(-1)?.text||'새 대화';b.innerHTML='<span class="bubbleicon">'+c.emoji+'</span><div class="detail"><b></b><small></small></div><span class="trail">›</span>';b.querySelector('b').textContent=c.name;b.querySelector('small').textContent=last;b.onclick=()=>openChat(i);$('threads').append(b)})}function filterMessages(q){renderThreads(q)}function openChat(i){chatIndex=i;openApp('chat');$('chatName').textContent=chats[i].name;$('chatLog').replaceChildren();chats[i].messages.forEach(m=>{const d=document.createElement('div');d.className='message'+(m.me?' me':'');d.textContent=m.text;$('chatLog').append(d)})}function sendMessage(e){e.preventDefault();const input=$('messageInput'),value=input.value.trim();if(!value)return;chats[chatIndex].messages.push({me:true,text:value});storage.set('chats',chats);input.value='';openChat(chatIndex)}function newChat(){const name=prompt('대화 상대 이름을 입력하세요');if(!name?.trim())return;chats.unshift({name:name.trim(),emoji:'💬',messages:[]});storage.set('chats',chats);openChat(0)}
+let notes=storage.get('notes',[{title:'나의 첫 메모',body:'여기에 원하는 내용을 자유롭게 적어 보세요.'}]);let noteIndex=0;function renderNotes(){$('notesList').replaceChildren();notes.forEach((n,i)=>{const b=document.createElement('button');b.className='cell note-item';b.innerHTML='<div class="detail"><b></b><small></small></div><span class="trail">›</span>';b.querySelector('b').textContent=n.title||'새 메모';b.querySelector('small').textContent=n.body.slice(0,55)||'내용 없음';b.onclick=()=>editNote(i);$('notesList').append(b)})}function editNote(i){noteIndex=i;openApp('noteEditor');$('noteTitle').value=notes[i].title;$('noteBody').value=notes[i].body}function addNote(){notes.unshift({title:'',body:''});storage.set('notes',notes);editNote(0)}function saveNote(){notes[noteIndex]={title:$('noteTitle').value,body:$('noteBody').value};storage.set('notes',notes);openApp('notes');toast('메모를 저장했어요')}function deleteNote(){if(!confirm('이 메모를 삭제할까요?'))return;notes.splice(noteIndex,1);storage.set('notes',notes);openApp('notes')}
+const photos=['🌷','🌅','🐱','🌈','☁️','🧸','🌼','🎀','🌙','🍮','⭐','💐'];photos.forEach((p,i)=>{const b=document.createElement('button');b.className='photo';b.textContent=p;b.onclick=()=>{openApp('photoView');$('bigPhoto').textContent=p;$('bigPhoto').style.background=getComputedStyle(b).backgroundImage};$('gallery').append(b)});
+let calendarOffset=0;function renderCalendar(){const now=new Date(),first=new Date(now.getFullYear(),now.getMonth()+calendarOffset,1),y=first.getFullYear(),m=first.getMonth(),count=new Date(y,m+1,0).getDate();$('calendarMonth').textContent=`${y}년 ${m+1}월`;$('calendarGrid').replaceChildren();['일','월','화','수','목','금','토'].forEach(w=>{const d=document.createElement('div');d.className='weekday';d.textContent=w;$('calendarGrid').append(d)});for(let i=0;i<first.getDay();i++)$('calendarGrid').append(document.createElement('div'));for(let i=1;i<=count;i++){const d=document.createElement('div');d.textContent=i;if(i===now.getDate()&&m===now.getMonth()&&y===now.getFullYear())d.className='today';$('calendarGrid').append(d)}}
+let playing=false;function toggleMusic(){playing=!playing;$('playBtn').textContent=playing?'Ⅱ':'▶';toast('이 플레이어는 화면 체험용이에요')}function musicSkip(){$('progress').value=0;toast('음원이 연결되어 있지 않아요')}
+function setWallpaper(n){$('device').classList.remove('wallpaper2','wallpaper3');if(n!==1)$('device').classList.add('wallpaper'+n);storage.set('wallpaper',n);toast('배경화면 변경 완료')}setWallpaper(storage.get('wallpaper',1));function diaryKey(){const d=new Date();return 'diary_'+d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}function loadDiary(){$('diaryText').value=storage.get(diaryKey(),'')}function saveDiary(){storage.set(diaryKey(),$('diaryText').value);toast('오늘의 일기를 저장했어요')}
+</script></body></html>
